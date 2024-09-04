@@ -23,8 +23,6 @@ spec:
               value: "80"
             - name: BACKEND_SERVICE_ADDR
               value: "backend-service:5000"
-           
-
 ---
 # Frontend Service
 apiVersion: v1
