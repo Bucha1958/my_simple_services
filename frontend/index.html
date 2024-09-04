@@ -1,0 +1,33 @@
+<!-- frontend/index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Frontend</title>
+</head>
+<body>
+    <h1>Welcome to the Frontend</h1>
+    <button id="fetchMessage">Get Message from Backend</button>
+    <p id="message"></p>
+
+    <script>
+        // Update the backend URL to include the /api/ prefix
+        const backendUrl = 'http://localhost:8080/api/message';
+
+        document.getElementById('fetchMessage').addEventListener('click', async () => {
+            try {
+                const response = await fetch(backendUrl);
+                if (response.ok) {
+                    const data = await response.json();
+                    document.getElementById('message').innerText = data.message;
+                } else {
+                    document.getElementById('message').innerText = 'Error fetching data';
+                }
+            } catch (error) {
+                document.getElementById('message').innerText = 'Error connecting to backend';
+            }
+        });
+    </script>
+</body>
+</html>

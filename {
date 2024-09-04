@@ -1,0 +1,646 @@
+Script started on 2024-08-28 01:57:09+01:00 [TERM="xterm-256color" TTY="/dev/pts/5" COLUMNS="237" LINES="63"]
+                    // Use Jenkins credentials to securely access DockerHub
+                    withCredentials([usernamePassword(credentialsId: 'dockerhub-credentials', passwordVariable: 'DOCKERHUB_PASSWORD', usernameVariable: 'DOCKERHUB_USERNAME')]) {
+                        dir('frontend') {
+                            // Build the Docker image for the frontend
+                            sh 'docker build -t bucha1958/frontend-service:latest .'
+                            
+                            // Log in to DockerHub
+                            sh 'echo $DOCKERHUB_PASSWORD | docker login -u $DOCKERHUB_USERNAME --password-stdin'
+                            
+                            // Push the frontend Docker image to DockerHub
+                            sh 'docker push bucha1958/frontend-service:latest'
+                        }
+                    }
+                }
+            }
+        }
+[?2004h]0;stanley@ONAFRIQ-NOC-3: ~/my_simple_services[01;32mstanley@ONAFRIQ-NOC-3[00m:[01;34m~/my_simple_services[00m$                     // Use Jenkins credentials to securely access DockerHub
+[?2004lbash: //: Is a directory
+[?2004h]0;stanley@ONAFRIQ-NOC-3: ~/my_simple_services[01;32mstanley@ONAFRIQ-NOC-3[00m:[01;34m~/my_simple_services[00m$                     withCredentials([usernamePassword(credentialsId: 'dockerhub-credentials', passwordVariable: 'DOCKERHUB_PASSWORD', usernameVariable: 'DOCKERHUB_USERNAME')]) {
+[?2004lbash: syntax error near unexpected token `[usernamePassword'
+[?2004h]0;stanley@ONAFRIQ-NOC-3: ~/my_simple_services[01;32mstanley@ONAFRIQ-NOC-3[00m:[01;34m~/my_simple_services[00m$                         dir('frontend') {
+[?2004lbash: syntax error near unexpected token `'frontend''
+[?2004h]0;stanley@ONAFRIQ-NOC-3: ~/my_simple_services[01;32mstanley@ONAFRIQ-NOC-3[00m:[01;34m~/my_simple_services[00m$                             // Build the Docker image for the frontend
+[?2004lbash: //: Is a directory
+[?2004h]0;stanley@ONAFRIQ-NOC-3: ~/my_simple_services[01;32mstanley@ONAFRIQ-NOC-3[00m:[01;34m~/my_simple_services[00m$                             sh 'docker build -t bucha1958/frontend-service:latest .'
+[?2004lsh: 0: cannot open docker build -t bucha1958/frontend-service:latest .: No such file
+[?2004h]0;stanley@ONAFRIQ-NOC-3: ~/my_simple_services[01;32mstanley@ONAFRIQ-NOC-3[00m:[01;34m~/my_simple_services[00m$                             
+[?2004l[?2004h]0;stanley@ONAFRIQ-NOC-3: ~/my_simple_services[01;32mstanley@ONAFRIQ-NOC-3[00m:[01;34m~/my_simple_services[00m$                             // Log in to DockerHub
+[?2004lbash: //: Is a directory
+[?2004h]0;stanley@ONAFRIQ-NOC-3: ~/my_simple_services[01;32mstanley@ONAFRIQ-NOC-3[00m:[01;34m~/my_simple_services[00m$                             sh 'echo $DOCKERHUB_PASSWORD | docker login -u $DOCKERHUB_USERNAME --password-stdin'
+[?2004lsh: 0: cannot open echo $DOCKERHUB_PASSWORD | docker login -u $DOCKERHUB_USERNAME --password-stdin: No such file
+[?2004h]0;stanley@ONAFRIQ-NOC-3: ~/my_simple_services[01;32mstanley@ONAFRIQ-NOC-3[00m:[01;34m~/my_simple_services[00m$                             
+[?2004l[?2004h]0;stanley@ONAFRIQ-NOC-3: ~/my_simple_services[01;32mstanley@ONAFRIQ-NOC-3[00m:[01;34m~/my_simple_services[00m$                             // Push the frontend Docker image to DockerHub
+[?2004lbash: //: Is a directory
+[?2004h]0;stanley@ONAFRIQ-NOC-3: ~/my_simple_services[01;32mstanley@ONAFRIQ-NOC-3[00m:[01;34m~/my_simple_services[00m$                             sh 'docker push bucha1958/frontend-service:latest'
+[?2004lsh: 0: cannot open docker push bucha1958/frontend-service:latest: No such file
+[?2004h]0;stanley@ONAFRIQ-NOC-3: ~/my_simple_services[01;32mstanley@ONAFRIQ-NOC-3[00m:[01;34m~/my_simple_services[00m$                         }
+[?2004lbash: syntax error near unexpected token `}'
+[?2004h]0;stanley@ONAFRIQ-NOC-3: ~/my_simple_services[01;32mstanley@ONAFRIQ-NOC-3[00m:[01;34m~/my_simple_services[00m$                     }
+[?2004lbash: syntax error near unexpected token `}'
+[?2004h]0;stanley@ONAFRIQ-NOC-3: ~/my_simple_services[01;32mstanley@ONAFRIQ-NOC-3[00m:[01;34m~/my_simple_services[00m$                 }
+[?2004lbash: syntax error near unexpected token `}'
+[?2004h]0;stanley@ONAFRIQ-NOC-3: ~/my_simple_services[01;32mstanley@ONAFRIQ-NOC-3[00m:[01;34m~/my_simple_services[00m$             }
+[?2004lbash: syntax error near unexpected token `}'
+[?2004h]0;stanley@ONAFRIQ-NOC-3: ~/my_simple_services[01;32mstanley@ONAFRIQ-NOC-3[00m:[01;34m~/my_simple_services[00m$         }
+[?2004lbash: syntax error near unexpected token `}'
+[?2004h]0;stanley@ONAFRIQ-NOC-3: ~/my_simple_services[01;32mstanley@ONAFRIQ-NOC-3[00m:[01;34m~/my_simple_services[00m$ [H[2J]0;stanley@ONAFRIQ-NOC-3: ~/my_simple_services[01;32mstanley@ONAFRIQ-NOC-3[00m:[01;34m~/my_simple_services[00m$ git push
+[?2004lUsername for 'https://github.com': Bucha1958
+Password for 'https://Bucha1958@github.com': 
+Enumerating objects: 5, done.
+Counting objects:  20% (1/5)Counting objects:  40% (2/5)Counting objects:  60% (3/5)Counting objects:  80% (4/5)Counting objects: 100% (5/5)Counting objects: 100% (5/5), done.
+Delta compression using up to 12 threads
+Compressing objects:  33% (1/3)Compressing objects:  66% (2/3)Compressing objects: 100% (3/3)Compressing objects: 100% (3/3), done.
+Writing objects:  33% (1/3)Writing objects:  66% (2/3)Writing objects: 100% (3/3)Writing objects: 100% (3/3), 517 bytes | 517.00 KiB/s, done.
+Total 3 (delta 2), reused 0 (delta 0), pack-reused 0
+remote: Resolving deltas:   0% (0/2)[Kremote: Resolving deltas:  50% (1/2)[Kremote: Resolving deltas: 100% (2/2)[Kremote: Resolving deltas: 100% (2/2), completed with 2 local objects.[K
+To https://github.com/Bucha1958/my_simple_services.git
+   91d6e0c..4389768  master -> master
+[?2004h]0;stanley@ONAFRIQ-NOC-3: ~/my_simple_services[01;32mstanley@ONAFRIQ-NOC-3[00m:[01;34m~/my_simple_services[00m$ [K]0;stanley@ONAFRIQ-NOC-3: ~/my_simple_services[01;32mstanley@ONAFRIQ-NOC-3[00m:[01;34m~/my_simple_services[00m$ ls
+[?2004l Jenkinsfile   [0m[01;34mbackend[0m   [01;34mfrontend[0m  '{'
+[?2004h]0;stanley@ONAFRIQ-NOC-3: ~/my_simple_services[01;32mstanley@ONAFRIQ-NOC-3[00m:[01;34m~/my_simple_services[00m$ cd backend/
+[?2004l[?2004h]0;stanley@ONAFRIQ-NOC-3: ~/my_simple_services/backend[01;32mstanley@ONAFRIQ-NOC-3[00m:[01;34m~/my_simple_services/backend[00m$ node --version
+[?2004lCommand 'node' not found, but can be installed with:
+sudo apt install nodejs
+[?2004h]0;stanley@ONAFRIQ-NOC-3: ~/my_simple_services/backend[01;32mstanley@ONAFRIQ-NOC-3[00m:[01;34m~/my_simple_services/backend[00m$ cd ..
+[?2004l[?2004h]0;stanley@ONAFRIQ-NOC-3: ~/my_simple_services[01;32mstanley@ONAFRIQ-NOC-3[00m:[01;34m~/my_simple_services[00m$ git add .
+[?2004l[?2004h]0;stanley@ONAFRIQ-NOC-3: ~/my_simple_services[01;32mstanley@ONAFRIQ-NOC-3[00m:[01;34m~/my_simple_services[00m$ git commit -m ""a"d"d"[C
+[?2004l[master d43cd28] add
+ 2 files changed, 130 insertions(+)
+ create mode 100644 {
+[?2004h]0;stanley@ONAFRIQ-NOC-3: ~/my_simple_services[01;32mstanley@ONAFRIQ-NOC-3[00m:[01;34m~/my_simple_services[00m$ git push
+[?2004lUsername for 'https://github.com': Bucha1958
+Password for 'https://Bucha1958@github.com': 
+Enumerating objects: 8, done.
+Counting objects:  12% (1/8)Counting objects:  25% (2/8)Counting objects:  37% (3/8)Counting objects:  50% (4/8)Counting objects:  62% (5/8)Counting objects:  75% (6/8)Counting objects:  87% (7/8)Counting objects: 100% (8/8)Counting objects: 100% (8/8), done.
+Delta compression using up to 12 threads
+Compressing objects:  20% (1/5)Compressing objects:  40% (2/5)Compressing objects:  60% (3/5)Compressing objects:  80% (4/5)Compressing objects: 100% (5/5)Compressing objects: 100% (5/5), done.
+Writing objects:  20% (1/5)Writing objects:  40% (2/5)Writing objects:  60% (3/5)Writing objects:  80% (4/5)Writing objects: 100% (5/5)Writing objects: 100% (5/5), 1.81 KiB | 1.81 MiB/s, done.
+Total 5 (delta 1), reused 0 (delta 0), pack-reused 0
+remote: Resolving deltas:   0% (0/1)[Kremote: Resolving deltas: 100% (1/1)[Kremote: Resolving deltas: 100% (1/1), completed with 1 local object.[K
+To https://github.com/Bucha1958/my_simple_services.git
+   4389768..d43cd28  master -> master
+[?2004h]0;stanley@ONAFRIQ-NOC-3: ~/my_simple_services[01;32mstanley@ONAFRIQ-NOC-3[00m:[01;34m~/my_simple_services[00m$ [K]0;stanley@ONAFRIQ-NOC-3: ~/my_simple_services[01;32mstanley@ONAFRIQ-NOC-3[00m:[01;34m~/my_simple_services[00m$ git pushcommit -m "add"[10Padd .
+[?2004l[?2004h]0;stanley@ONAFRIQ-NOC-3: ~/my_simple_services[01;32mstanley@ONAFRIQ-NOC-3[00m:[01;34m~/my_simple_services[00m$ git add .[1Ppushcommit -m "add"
+[?2004l[master c366eda] add
+ 2 files changed, 40 insertions(+), 43 deletions(-)
+[?2004h]0;stanley@ONAFRIQ-NOC-3: ~/my_simple_services[01;32mstanley@ONAFRIQ-NOC-3[00m:[01;34m~/my_simple_services[00m$ git push
+[?2004lUsername for 'https://github.com': Bucha1958
+Password for 'https://Bucha1958@github.com': 
+Enumerating objects: 7, done.
+Counting objects:  14% (1/7)Counting objects:  28% (2/7)Counting objects:  42% (3/7)Counting objects:  57% (4/7)Counting objects:  71% (5/7)Counting objects:  85% (6/7)Counting objects: 100% (7/7)Counting objects: 100% (7/7), done.
+Delta compression using up to 12 threads
+Compressing objects:  25% (1/4)Compressing objects:  50% (2/4)Compressing objects:  75% (3/4)Compressing objects: 100% (4/4)Compressing objects: 100% (4/4), done.
+Writing objects:  25% (1/4)Writing objects:  50% (2/4)Writing objects:  75% (3/4)Writing objects: 100% (4/4)Writing objects: 100% (4/4), 1.23 KiB | 1.23 MiB/s, done.
+Total 4 (delta 3), reused 0 (delta 0), pack-reused 0
+remote: Resolving deltas:   0% (0/3)[Kremote: Resolving deltas:  33% (1/3)[Kremote: Resolving deltas:  66% (2/3)[Kremote: Resolving deltas: 100% (3/3)[Kremote: Resolving deltas: 100% (3/3), completed with 3 local objects.[K
+To https://github.com/Bucha1958/my_simple_services.git
+   d43cd28..c366eda  master -> master
+[?2004h]0;stanley@ONAFRIQ-NOC-3: ~/my_simple_services[01;32mstanley@ONAFRIQ-NOC-3[00m:[01;34m~/my_simple_services[00m$ ls
+[?2004l Jenkinsfile   [0m[01;34mbackend[0m   [01;34mfrontend[0m  '{'
+[?2004h]0;stanley@ONAFRIQ-NOC-3: ~/my_simple_services[01;32mstanley@ONAFRIQ-NOC-3[00m:[01;34m~/my_simple_services[00m$ ls
+[?2004l Jenkinsfile   [0m[01;34mbackend[0m   [01;34mfrontend[0m   gke-1-432911-a6ca7309eef8.json   main.tf  '{'
+[?2004h]0;stanley@ONAFRIQ-NOC-3: ~/my_simple_services[01;32mstanley@ONAFRIQ-NOC-3[00m:[01;34m~/my_simple_services[00m$ terraform init
+[?2004l[0m[1mInitializing the backend...[0m
+[0m[1mInitializing provider plugins...[0m
+- Finding latest version of hashicorp/google...
+- Installing hashicorp/google v6.0.1...
+- Installed hashicorp/google v6.0.1 (signed by HashiCorp)
+Terraform has created a lock file [1m.terraform.lock.hcl[0m to record the provider
+selections it made above. Include this file in your version control repository
+so that Terraform can guarantee to make the same selections by default when
+you run "terraform init" in the future.[0m
+
+[0m[1m[32mTerraform has been successfully initialized![0m[32m[0m
+[0m[32m
+You may now begin working with Terraform. Try running "terraform plan" to see
+any changes that are required for your infrastructure. All Terraform commands
+should now work.
+
+If you ever set or change modules or backend configuration for Terraform,
+rerun this command to reinitialize your working directory. If you forget, other
+commands will detect it and remind you to do so if necessary.[0m
+[?2004h]0;stanley@ONAFRIQ-NOC-3: ~/my_simple_services[01;32mstanley@ONAFRIQ-NOC-3[00m:[01;34m~/my_simple_services[00m$ terraform apply[K[K[K[K[Kplan
+[?2004l
+Terraform used the selected providers to generate the following execution plan. Resource actions are indicated with the following symbols:
+  [32m+[0m create[0m
+
+Terraform will perform the following actions:
+
+[1m  # google_compute_network.vpc_network[0m will be created
+[0m  [32m+[0m[0m resource "google_compute_network" "vpc_network" {
+      [32m+[0m[0m auto_create_subnetworks                   = false
+      [32m+[0m[0m delete_default_routes_on_create           = false
+      [32m+[0m[0m gateway_ipv4                              = (known after apply)
+      [32m+[0m[0m id                                        = (known after apply)
+      [32m+[0m[0m internal_ipv6_range                       = (known after apply)
+      [32m+[0m[0m mtu                                       = (known after apply)
+      [32m+[0m[0m name                                      = "stanley-network"
+      [32m+[0m[0m network_firewall_policy_enforcement_order = "AFTER_CLASSIC_FIREWALL"
+      [32m+[0m[0m numeric_id                                = (known after apply)
+      [32m+[0m[0m project                                   = "gke-1-432911"
+      [32m+[0m[0m routing_mode                              = (known after apply)
+      [32m+[0m[0m self_link                                 = (known after apply)
+    }
+
+[1m  # google_compute_subnetwork.my_subnet[0m will be created
+[0m  [32m+[0m[0m resource "google_compute_subnetwork" "my_subnet" {
+      [32m+[0m[0m creation_timestamp         = (known after apply)
+      [32m+[0m[0m external_ipv6_prefix       = (known after apply)
+      [32m+[0m[0m fingerprint                = (known after apply)
+      [32m+[0m[0m gateway_address            = (known after apply)
+      [32m+[0m[0m id                         = (known after apply)
+      [32m+[0m[0m internal_ipv6_prefix       = (known after apply)
+      [32m+[0m[0m ip_cidr_range              = "10.2.0.0/16"
+      [32m+[0m[0m ipv6_cidr_range            = (known after apply)
+      [32m+[0m[0m name                       = "test-subnetwork"
+      [32m+[0m[0m network                    = (known after apply)
+      [32m+[0m[0m private_ip_google_access   = (known after apply)
+      [32m+[0m[0m private_ipv6_google_access = (known after apply)
+      [32m+[0m[0m project                    = "gke-1-432911"
+      [32m+[0m[0m purpose                    = (known after apply)
+      [32m+[0m[0m region                     = "us-central1"
+      [32m+[0m[0m self_link                  = (known after apply)
+      [32m+[0m[0m stack_type                 = (known after apply)
+
+      [32m+[0m[0m secondary_ip_range {
+          [32m+[0m[0m ip_cidr_range = "10.3.0.0/16"
+          [32m+[0m[0m range_name    = "gke-pods-range"
+        }
+      [32m+[0m[0m secondary_ip_range {
+          [32m+[0m[0m ip_cidr_range = "10.4.0.0/20"
+          [32m+[0m[0m range_name    = "gke-services-range"
+        }
+    }
+
+[1m  # google_container_cluster.primary[0m will be created
+[0m  [32m+[0m[0m resource "google_container_cluster" "primary" {
+      [32m+[0m[0m cluster_ipv4_cidr                        = (known after apply)
+      [32m+[0m[0m datapath_provider                        = (known after apply)
+      [32m+[0m[0m default_max_pods_per_node                = (known after apply)
+      [32m+[0m[0m deletion_protection                      = false
+      [32m+[0m[0m effective_labels                         = {
+          [32m+[0m[0m "goog-terraform-provisioned" = "true"
+        }
+      [32m+[0m[0m enable_cilium_clusterwide_network_policy = false
+      [32m+[0m[0m enable_intranode_visibility              = (known after apply)
+      [32m+[0m[0m enable_kubernetes_alpha                  = false
+      [32m+[0m[0m enable_l4_ilb_subsetting                 = false
+      [32m+[0m[0m enable_legacy_abac                       = false
+      [32m+[0m[0m enable_multi_networking                  = false
+ )Counting objects:  57% (4/7)Counting objects:  71% (5/7)Counting objects:  85% (6/7)Counting objects: 100% (7/7)Counting objects: 100% (7/7), done.
+Delta compression using up to 12 threads
+Compressing objects:  25% (1/4)Compressing objects:  50% (2/4)Compressing objects:  75% (3/4)Compressing objects: 100% (4/4)Compressing objects: 100% (4/4), done.
+Writing objects:  25% (1/4)Writing objects:  50% (2/4)Writing objects:  75% (3/4)Writing objects: 100% (4/4)Writing objects: 100% (4/4), 1.23 KiB | 1.23 MiB/s, done.
+Total 4 (delta 3), reused 0 (delta 0), pack-reused 0
+remote: Resolving deltas:   0% (0/3)[Kremote: Resolving deltas:  33% (1/3)[Kremote: Resolving deltas:  66% (2/3)[Kremote: Resolving deltas: 100% (3/3)[Kremote: Resolving deltas: 100% (3/3), completed with 3 local objects.[K
+To https://github.com/Bucha1958/my_simple_services.git
+   d43cd28..c366eda  master -> master
+[?2004h]0;stanley@ONAFRIQ-NOC-3: ~/my_simple_services[01;32mstanley@ONAFRIQ-NOC-3[00m:[01;34m~/my_simple_services[00m$ ls
+[?2004l Jenkinsfile   [0m[01;34mbackend[0m   [01;34mfrontend[0m  '{'
+[?2004h]0;stanley@ONAFRIQ-NOC-3: ~/my_simple_services[01;32mstanley@ONAFRIQ-NOC-3[00m:[01;34m~/my_simple_services[00m$ ls
+[?2004l Jenkinsfile   [0m[01;34mbackend[0m   [01;34mfrontend[0m   gke-1-432911-a6ca7309eef8.json   main.tf  '{'
+[?2004h]0;stanley@ONAFRIQ-NOC-3: ~/my_simple_services[01;32mstanley@ONAFRIQ-NOC-3[00m:[01;34m~/my_simple_services[00m$ terraform init
+[?2004l[0m[1mInitializing the backend...[0m
+[0m[1mInitializing provider plugins...[0m
+- Finding latest version of hashicorp/google...
+- Installing hashicorp/google v6.0.1...
+- Installed hashicorp/google v6.0.1 (signed by HashiCorp)
+Terraform has created a lock file [1m.terraform.lock.hcl[0m to record the provider
+selections it made above. Include this file in your version control repository
+so that Terraform can guarantee to make the same selections by default when
+you run "terraform init" in the future.[0m
+
+[0m[1m[32mTerraform has been successfully initialized![0m[32m[0m
+[0m[32m
+You may now begin working with Terraform. Try running "terraform plan" to see
+any changes that are required for your infrastructure. All Terraform commands
+should now work.
+
+If you ever set or change modules or backend configuration for Terraform,
+rerun this command to reinitialize your working directory. If you forget, other
+commands will detect it and remind you to do so if necessary.[0m
+[?2004h]0;stanley@ONAFRIQ-NOC-3: ~/my_simple_services[01;32mstanley@ONAFRIQ-NOC-3[00m:[01;34m~/my_simple_services[00m$ terraform apply[K[K[K[K[Kplan
+[?2004l
+Terraform used the selected providers to generate the following execution plan. Resource actions are indicated with the following symbols:
+  [32m+[0m create[0m
+
+Terraform will perform the following actions:
+
+[1m  # google_compute_network.vpc_network[0m will be created
+[0m  [32m+[0m[0m resource "google_compute_network" "vpc_network" {
+      [32m+[0m[0m auto_create_subnetworks                   = false
+      [32m+[0m[0m delete_default_routes_on_create           = false
+      [32m+[0m[0m gateway_ipv4                              = (known after apply)
+      [32m+[0m[0m id                                        = (known after apply)
+      [32m+[0m[0m internal_ipv6_range                       = (known after apply)
+      [32m+[0m[0m mtu                                       = (known after apply)
+      [32m+[0m[0m name                                      = "stanley-network"
+      [32m+[0m[0m network_firewall_policy_enforcement_order = "AFTER_CLASSIC_FIREWALL"
+      [32m+[0m[0m numeric_id                                = (known after apply)
+      [32m+[0m[0m project                                   = "gke-1-432911"
+      [32m+[0m[0m routing_mode                              = (known after apply)
+      [32m+[0m[0m self_link                                 = (known after apply)
+    }
+
+[1m  # google_com",
+            ]
+          [32m+[0m[0m preemptible      = false
+          [32m+[0m[0m service_account  = (known after apply)
+          [32m+[0m[0m spot             = false
+
+          [32m+[0m[0m confidential_nodes (known after apply)
+
+          [32m+[0m[0m guest_accelerator (known after apply)
+
+          [32m+[0m[0m shielded_instance_config (known after apply)
+
+          [32m+[0m[0m workload_metadata_config (known after apply)
+        }
+
+      [32m+[0m[0m node_pool (known after apply)
+
+      [32m+[0m[0m node_pool_auto_config (known after apply)
+
+      [32m+[0m[0m node_pool_defaults (known after apply)
+
+      [32m+[0m[0m notification_config (known after apply)
+
+      [32m+[0m[0m release_channel (known after apply)
+
+      [32m+[0m[0m security_posture_config (known after apply)
+
+      [32m+[0m[0m service_external_ips_config (known after apply)
+
+      [32m+[0m[0m vertical_pod_autoscaling (known after apply)
+
+      [32m+[0m[0m workload_identity_config (known after apply)
+    }
+
+[1mPlan:[0m 3 to add, 0 to change, 0 to destroy.
+[0m
+Changes to Outputs:
+  [32m+[0m[0m cluster_ca_certificate = (known after apply)
+  [32m+[0m[0m cluster_endpoint       = (known after apply)
+  [32m+[0m[0m cluster_name           = "my-gke-cluster"
+[90m
+────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────[0m
+
+Note: You didn't use the -out option to save this plan, so Terraform can't guarantee to take exactly these actions if you run "terraform apply" now.
+[?2004h]0;stanley@ONAFRIQ-NOC-3: ~/my_simple_services[01;32mstanley@ONAFRIQ-NOC-3[00m:[01;34m~/my_simple_services[00m$ terraform apply
+[?2004l
+Terraform used the selected providers to generate the following execution plan. Resource actions are indicated with the following symbols:
+  [32m+[0m create[0m
+
+Terraform will perform the following actions:
+
+[1m  # google_compute_network.vpc_network[0m will be created
+[0m  [32m+[0m[0m resource "google_compute_network" "vpc_network" {
+      [32m+[0m[0m auto_create_subnetworks                   = false
+      [32m+[0m[0m delete_default_routes_on_create           = false
+      [32m+[0m[0m gateway_ipv4                              = (known after apply)
+      [32m+[0m[0m id                                        = (known after apply)
+      [32m+[0m[0m internal_ipv6_range                       = (known after apply)
+      [32m+[0m[0m mtu                                       = (known after apply)
+      [32m+[0m[0m name                                      = "stanley-network"
+      [32m+[0m[0m network_firewall_policy_enforcement_order = "AFTER_CLASSIC_FIREWALL"
+      [32m+[0m[0m numeric_id                                = (known after apply)
+      [32m+[0m[0m project                                   = "gke-1-432911"
+      [32m+[0m[0m routing_mode                              = (known after apply)
+      [32m+[0m[0m self_link                                 = (known after apply)
+    }
+
+[1m  # google_compute_subnetwork.my_subnet[0m will be created
+[0m  [32m+[0m[0m resource "google_compute_subnetwork" "my_subnet" {
+      [32m+[0m[0m creation_timestamp         = (known after apply)
+      [32m+[0m[0m external_ipv6_prefix       = (known after apply)
+      [32m+[0m[0m fingerprint                = (known after apply)
+      [32m+[0m[0m gateway_address            = (known after apply)
+      [32m+[0m[0m id                         = (known after apply)
+      [32m+[0m[0m internal_ipv6_prefix       = (known after apply)
+      [32m+[0m[0m ip_cidr_range              = "10.2.0.0/16"
+      [32m+[0m[0m ipv6_cidr_range            = (known after apply)
+      [32m+[0m[0m name                       = "test-subnetwork"
+      [32m+[0m[0m network                    = (known after apply)
+      [32m+[0m[0m private_ip_google_access   = (known after apply)
+      [32m+[0m[0m private_ipv6_google_access = (known after apply)
+      [32m+[0m[0m project                    = "gke-1-432911"
+      [32m+[0m[0m purpose                    = (known after apply)
+      [32m+[0m[0m region                     = "us-central1"
+      [32m+[0m[0m self_link                  = (known after apply)
+      [32m+[0m[0m stack_type                 = (known after apply)
+
+      [32m+[0m[0m secondary_ip_range {
+          [32m+[0m[0m ip_cidr_range = "10.3.0.0/16"
+          [32m+[0m[0m range_name    = "gke-pods-range"
+        }
+      [32m+[0m[0m secondary_ip_range {
+          [32m+[0m[0m ip_cidr_range = "10.4.0.0/20"
+          [32m+[0m[0m range_name    = "gke-services-range"
+        }
+    }
+
+[1m  # google_container_cluster.primary[0m will be created
+[0m  [32m+[0m[0m resource "google_container_cluster" "primary" {
+      [32m+[0m[0m cluster_ipv4_cidr                        = (known after apply)
+      [32m+[0m[0m datapath_provider                        = (known after apply)
+      [32m+[0m[0m default_max_pods_per_node                = (known after apply)
+      [32m+[0m[0m deletion_protection                      = false
+      [32m+[0m[0m effective_labels                         = {
+          [32m+[0m[0m "goog-terraform-provisioned" = "true"
+        }
+      [32m+[0m[0m enable_cilium_clusterwide_network_policy = false
+      [32m+[0m[0m enable_intranode_visibility              = (known after apply)
+      [32m+[0m[0m enable_kubernetes_alpha                  = false
+      [32m+[0m[0m enable_l4_ilb_subsetting                 = false
+      [32m+[0m[0m enable_legacy_abac                       = false
+      [32m+[0m[0m enable_multi_networking                  = false
+      [32m+[0m[0m enable_shielded_nodes                    = true
+      [32m+[0m[0m endpoint                                 = (known after apply)
+      [32m+[0m[0m id                                       = (known after apply)
+      [32m+[0m[0m initial_node_count                       = 1
+      [32m+[0m[0m label_fingerprint                        = (known after apply)
+      [32m+[0m[0m location                                 = "us-central1"
+      [32m+[0m[0m logging_service                          = (known after apply)
+      [32m+[0m[0m master_version                           = (known after apply)
+      [32m+[0m[0m monitoring_service                       = (known after apply)
+      [32m+[0m[0m name                                     = "my-gke-cluster"
+      [32m+[0m[0m network                                  = (known after apply)
+      [32m+[0m[0m networking_mode                          = (known after apply)
+      [32m+[0m[0m node_locations                           = (known after apply)
+      [32m+[0m[0m node_version                             = (known after apply)
+      [32m+[0m[0m operation                                = (known after apply)
+      [32m+[0m[0m private_ipv6_google_access               = (known after apply)
+      [32m+[0m[0m project                                  = (known after apply)
+      [32m+[0m[0m self_link                                = (known after apply)
+      [32m+[0m[0m services_ipv4_cidr                       = (known after apply)
+      [32m+[0m[0m subnetwork                               = "test-subnetwork"
+      [32m+[0m[0m terraform_labels                         = {
+          [32m+[0m[0m "goog-terraform-provisioned" = "true"
+        }
+      [32m+[0m[0m tpu_ipv4_cidr_block                      = (known after apply)
+
+      [32m+[0m[0m addons_config (known after apply)
+
+      [32m+[0m[0m authenticator_groups_config (known after apply)
+
+      [32m+[0m[0m cluster_autoscaling (known after apply)
+
+      [32m+[0m[0m confidential_nodes (known after apply)
+
+      [32m+[0m[0m cost_management_config (known after apply)
+
+      [32m+[0m[0m database_encryption (known after apply)
+
+      [32m+[0m[0m default_snat_status (known after apply)
+
+      [32m+[0m[0m gateway_api_config (known after apply)
+
+      [32m+[0m[0m identity_service_config (known after apply)
+
+      [32m+[0m[0m ip_allocation_policy {
+          [32m+[0m[0m cluster_ipv4_cidr_block       = (known after apply)
+          [32m+[0m[0m cluster_secondary_range_name  = "gke-pods-range"
+          [32m+[0m[0m services_ipv4_cidr_block      = (known after apply)
+          [32m+[0m[0m services_secondary_range_name = "gke-services-range"
+          [32m+[0m[0m stack_type                    = "IPV4"
+
+          [32m+[0m[0m pod_cidr_overprovision_config (known after apply)
+        }
+
+      [32m+[0m[0m logging_config (known after apply)
+
+      [32m+[0m[0m master_auth (known after apply)
+
+      [32m+[0m[0m master_authorized_networks_config (known after apply)
+
+      [32m+[0m[0m mesh_certificates (known after apply)
+
+      [32m+[0m[0m monitoring_config (known after apply)
+
+      [32m+[0m[0m node_config {
+          [32m+[0m[0m disk_size_gb     = (known after apply)
+          [32m+[0m[0m disk_type        = (known after apply)
+          [32m+[0m[0m effective_taints = (known after apply)
+          [32m+[0m[0m image_type       = (known after apply)
+          [32m+[0m[0m labels           = (known after apply)
+          [32m+[0m[0m local_ssd_count  = (known after apply)
+          [32m+[0m[0m logging_variant  = (known after apply)
+          [32m+[0m[0m machine_type     = "e2-medium"
+          [32m+[0m[0m metadata         = (known after apply)
+          [32m+[0m[0m min_cpu_platform = (known after apply)
+          [32m+[0m[0m oauth_scopes     = [
+              [32m+[0m[0m "https://www.googleapis.com/auth/cloud-platform",
+            ]
+          [32m+[0m[0m preemptible      = false
+          [32m+[0m[0m service_account  = (known after apply)
+          [32m+[0m[0m spot             = false
+
+          [32m+[0m[0m confidential_nodes (known after apply)
+
+          [32m+[0m[0m guest_accelerator (known after apply)
+
+          [32m+[0m[0m shielded_instance_config (known after apply)
+
+          [32m+[0m[0m workload_metadata_config (known after apply)
+        }
+
+      [32m+[0m[0m node_pool (known after apply)
+
+      [32m+[0m[0m node_pool_auto_config (known after apply)
+
+      [32m+[0m[0m node_pool_defaults (known after apply)
+
+      [32m+[0m[0m notification_config (known after apply)
+
+      [32m+[0m[0m release_channel (known after apply)
+
+      [32m+[0m[0m security_posture_config (known after apply)
+
+      [32m+[0m[0m service_external_ips_config (known after apply)
+
+      [32m+[0m[0m vertical_pod_autoscaling (known after apply)
+
+      [32m+[0m[0m workload_identity_config (known after apply)
+    }
+
+[1mPlan:[0m 3 to add, 0 to change, 0 to destroy.
+[0m
+Changes to Outputs:
+  [32m+[0m[0m cluster_ca_certificate = (known after apply)
+  [32m+[0m[0m cluster_endpoint       = (known after apply)
+  [32m+[0m[0m cluster_name           = "my-gke-cluster"
+[0m[1m
+Do you want to perform these actions?[0m
+  Terraform will perform the actions described above.
+  Only 'yes' will be accepted to approve.
+
+  [1mEnter a value:[0m [0myes
+
+[0m[1mgoogle_compute_network.vpc_network: Creating...[0m[0m
+[0m[1mgoogle_compute_network.vpc_network: Still creating... [10s elapsed][0m[0m
+[0m[1mgoogle_compute_network.vpc_network: Creation complete after 12s [id=projects/gke-1-432911/global/networks/stanley-network][0m
+[0m[1mgoogle_compute_subnetwork.my_subnet: Creating...[0m[0m
+[0m[1mgoogle_compute_subnetwork.my_subnet: Still creating... [10s elapsed][0m[0m
+[0m[1mgoogle_compute_subnetwork.my_subnet: Still creating... [20s elapsed][0m[0m
+[0m[1mgoogle_compute_subnetwork.my_subnet: Creation complete after 25s [id=projects/gke-1-432911/regions/us-central1/subnetworks/test-subnetwork][0m
+[0m[1mgoogle_container_cluster.primary: Creating...[0m[0m
+[0m[1mgoogle_container_cluster.primary: Still creating... [10s elapsed][0m[0m
+[0m[1mgoogle_container_cluster.primary: Still creating... [20s elapsed][0m[0m
+[0m[1mgoogle_container_cluster.primary: Still creating... [30s elapsed][0m[0m
+[0m[1mgoogle_container_cluster.primary: Still creating... [40s elapsed][0m[0m
+[0m[1mgoogle_container_cluster.primary: Still creating... [50s elapsed][0m[0m
+[0m[1mgoogle_container_cluster.primary: Still creating... [1m0s elapsed][0m[0m
+[0m[1mgoogle_container_cluster.primary: Still creating... [1m10s elapsed][0m[0m
+[0m[1mgoogle_container_cluster.primary: Still creating... [1m20s elapsed][0m[0m
+[0m[1mgoogle_container_cluster.primary: Still creating... [1m30s elapsed][0m[0m
+[0m[1mgoogle_container_cluster.primary: Still creating... [1m40s elapsed][0m[0m
+[0m[1mgoogle_container_cluster.primary: Still creating... [1m50s elapsed][0m[0m
+[0m[1mgoogle_container_cluster.primary: Still creating... [2m0s elapsed][0m[0m
+[0m[1mgoogle_container_cluster.primary: Still creating... [2m10s elapsed][0m[0m
+[0m[1mgoogle_container_cluster.primary: Still creating... [2m20s elapsed][0m[0m
+[0m[1mgoogle_container_cluster.primary: Still creating... [2m30s elapsed][0m[0m
+[0m[1mgoogle_container_cluster.primary: Still creating... [2m40s elapsed][0m[0m
+[0m[1mgoogle_container_cluster.primary: Still creating... [2m50s elapsed][0m[0m
+[0m[1mgoogle_container_cluster.primary: Still creating... [3m0s elapsed][0m[0m
+[0m[1mgoogle_container_cluster.primary: Still creating... [3m10s elapsed][0m[0m
+[0m[1mgoogle_container_cluster.primary: Still creating... [3m20s elapsed][0m[0m
+[0m[1mgoogle_container_cluster.primary: Still creating... [3m30s elapsed][0m[0m
+[0m[1mgoogle_container_cluster.primary: Still creating... [3m40s elapsed][0m[0m
+[0m[1mgoogle_container_cluster.primary: Still creating... [3m50s elapsed][0m[0m
+[0m[1mgoogle_container_cluster.primary: Still creating... [4m0s elapsed][0m[0m
+[0m[1mgoogle_container_cluster.primary: Still creating... [4m10s elapsed][0m[0m
+[0m[1mgoogle_container_cluster.primary: Still creating... [4m20s elapsed][0m[0m
+[0m[1mgoogle_container_cluster.primary: Still creating... [4m30s elapsed][0m[0m
+[0m[1mgoogle_container_cluster.primary: Still creating... [4m40s elapsed][0m[0m
+[0m[1mgoogle_container_cluster.primary: Still creating... [4m50s elapsed][0m[0m
+[0m[1mgoogle_container_cluster.primary: Still creating... [5m0s elapsed][0m[0m
+[0m[1mgoogle_container_cluster.primary: Still creating... [5m10s elapsed][0m[0m
+[0m[1mgoogle_container_cluster.primary: Still creating... [5m20s elapsed][0m[0m
+[0m[1mgoogle_container_cluster.primary: Still creating... [5m30s elapsed][0m[0m
+[0m[1mgoogle_container_cluster.primary: Still creating... [5m40s elapsed][0m[0m
+[0m[1mgoogle_container_cluster.primary: Still creating... [5m50s elapsed][0m[0m
+[0m[1mgoogle_container_cluster.primary: Still creating... [6m0s elapsed][0m[0m
+[0m[1mgoogle_container_cluster.primary: Creation complete after 6m10s [id=projects/gke-1-432911/locations/us-central1/clusters/my-gke-cluster][0m
+[0m[1m[32m
+Apply complete! Resources: 3 added, 0 changed, 0 destroyed.
+[0m[0m[1m[32m
+Outputs:
+
+[0mcluster_ca_certificate = "LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSUVMRENDQXBTZ0F3SUJBZ0lRUGduOGZJVDNEdGNwT0d1bXdETUdrekFOQmdrcWhraUc5dzBCQVFzRkFEQXYKTVMwd0t3WURWUVFERXlSak1qRTROVGt3T1MwNFl6QmxMVFF3WlRJdE9UZzJPUzB4TlRsa05XUTROemhtWldJdwpJQmNOTWpRd09ESTRNVE0xTnpBeldoZ1BNakExconfig (known after apply)
+
+      [32m+[0m[0m mesh_certificates (known after apply)
+
+      [32m+[0m[0m monitoring_config (known after apply)
+
+      [32m+[0m[0m node_config {
+          [32m+[0m[0m disk_size_gb     = (known after apply)
+          [32m+[0m[0m disk_type        = (known after apply)
+          [32m+[0m[0m effective_taints = (known after apply)
+          [32m+[0m[0m image_type       = (known after apply)
+          [32m+[0m[0m labels           = (known after apply)
+          [32m+[0m[0m local_ssd_count  = (known after apply)
+          [32m+[0m[0m logging_variant  = (known after apply)
+          [32m+[0m[0m machine_type     = "e2-medium"
+          [32m+[0m[0m metadata         = (known after apply)
+          [32m+[0m[0m min_cpu_platform = (known after apply)
+          [32m+[0m[0m oauth_scopes     = [
+              [32m+[0m[0m "https://www.googleapis.com/auth/cloud-platform",
+            ]
+          [32m+[0m[0m preemptible      = false
+          [32m+[0m[0m service_account  = (known after apply)
+          [32m+[0m[0m spot             = false
+
+          [32m+[0m[0m confidential_nodes (known after apply)
+
+          [32m+[0m[0m guest_accelerator (known after apply)
+
+          [32m+[0m[0m shielded_instance_config (known after apply)
+
+          [32m+[0m[0m workload_metadata_config (known after apply)
+        }
+
+      [32m+[0m[0m node_pool (known after apply)
+
+      [32m+[0m[0m node_pool_auto_config (known after apply)
+
+      [32m+[0m[0m node_pool_defaults (known after apply)
+
+      [32m+[0m[0m notification_config (known after apply)
+
+      [32m+[0m[0m release_channel (known after apply)
+
+      [32m+[0m[0m security_posture_config (known after apply)
+
+      [32m+[0m[0m service_external_ips_config (known after apply)
+
+      [32m+[0m[0m vertical_pod_autoscaling (known after apply)
+
+      [32m+[0m[0m workload_identity_config (known after apply)
+    }
+
+[1mPlan:[0m 3 to add, 0 to change, 0 to destroy.
+[0m
+Changes to Outputs:
+  [32m+[0m[0m cluster_ca_certificate = (known after apply)
+  [32m+[0m[0m cluster_endpoint       = (known after apply)
+  [32m+[0m[0m cluster_name           = "my-gke-cluster"
+[0m[1m
+Do you want to perform these actions?[0m
+  Terraform will perform the actions described above.
+  Only 'yes' will be accepted to approve.
+
+  [1mEnter a value:[0m [0myes
+
+[0m[1mgoogle_compute_network.vpc_network: Creating...[0m[0m
+[0m[1mgoogle_compute_network.vpc_network: Still creating... [10s elapsed][0m[0m
+[0m[1mgoogle_compute_network.vpc_network: Creation complete after 12s [id=projects/gke-1-432911/global/networks/stanley-network][0m
+[0m[1mgoogle_compute_subnetwork.my_subnet: Creating...[0m[0m
+[0m[1mgoogle_compute_subnetwork.my_subnet: Still creating... [10s elapsed][0m[0m
+[0m[1mgoogle_compute_subnetwork.my_subnet: Still creating... [20s elapsed][0m[0m
+[0m[1mgoogle_compute_subnetwork.my_subnet: Creation complete after 25s [id=projects/gke-1-432911/regions/us-central1/subnetworks/test-subnetwork][0m
+[0m[1mgoogle_container_cluster.primary: Creating...[0m[0m
+[0m[1mgoogle_container_cluster.primary: Still creating... [10s elapsed][0m[0m
+[0m[1mgoogle_container_cluster.primary: Still creating... [20s elapsed][0m[0m
+[0m[1mgoogle_container_cluster.primary: Still creating... [30s elapsed][0m[0m
+[0m[1mgoogle_container_cluster.primary: Still creating... [40s elapsed][0m[0m
+[0m[1mgoogle_container_cluster.primary: Still creating... [50s elapsed][0m[0m
+[0m[1mgoogle_container_cluster.primary: Still creating... [1m0s elapsed][0m[0m
+[0m[1mgoogle_container_cluster.primary: Still creating... [1m10s elapsed][0m[0m
+[0m[1mgoogle_container_cluster.primary: Still creating... [1m20s elapsed][0m[0m
+[0m[1mgoogle_container_cluster.primary: Still creating... [1m30s elapsed][0m[0m
+[0m[1mgoogle_container_cluster.primary: Still creating... [1m40s elapsed][0m[0m
+[0m[1mgoogle_container_cluster.primary: Still creating... [1m50s elapsed][0m[0m
+[0m[1mgoogle_container_cluster.primary: Still creating... [2m0s elapsed][0m[0m
+[0m[1mgoogle_container_cluster.primary: Still creating... [2m10s elapsed][0m[0m
+[0m[1mgoogle_container_cluster.primary: Still creating... [2m20s elapsed][0m[0m
+[0m[1mgoogle_container_cluster.primary: Still creating... [2m30s elapsed][0m[0m
+[0m[1mgoogle_container_cluster.primary: Still creating... [2m40s elapsed][0m[0m
+[0m[1mgoogle_container_cluster.primary: Still creating... [2m50s elapsed][0m[0m
+[0m[1mgoogle_container_cluster.primary: Still creating... [3m0s elapsed][0m[0m
+[0m[1mgoogle_container_cluster.primary: Still creating... [3m10s elapsed][0m[0m
+[0m[1mgoogle_container_cluster.primary: Still creating... [3m20s elapsed][0m[0m
+[0m[1mgoogle_container_cluster.primary: Still creating... [3m30s elapsed][0m[0m
+[0m[1mgoogle_container_cluster.primary: Still creating... [3m40s elapsed][0m[0m
+[0m[1mgoogle_container_cluster.primary: Still creating... [3m50s elapsed][0m[0m
+[0m[1mgoogle_container_cluster.primary: Still creating... [4m0s elapsed][0m[0m
+[0m[1mgoogle_container_cluster.primary: Still creating... [4m10s elapsed][0m[0m
+[0m[1mgoogle_container_cluster.primary: Still creating... [4m20s elapsed][0m[0m
+[0m[1mgoogle_container_cluster.primary: Still creating... [4m30s elapsed][0m[0m
+[0m[1mgoogle_container_cluster.primary: Still creating... [4m40s elapsed][0m[0m
+[0m[1mgoogle_container_cluster.primary: Still creating... [4m50s elapsed][0m[0m
+[0m[1mgoogle_container_cluster.primary: Still creating... [5m0s elapsed][0m[0m
+[0m[1mgoogle_container_cluster.primary: Still creating... [5m10s elapsed][0m[0m
+[0m[1mgoogle_container_cluster.primary: Still creating... [5m20s elapsed][0m[0m
+[0m[1mgoogle_container_cluster.primary: Still creating... [5m30s elapsed][0m[0m
+[0m[1mgoogle_container_cluster.primary: Still creating... [5m40s elapsed][0m[0m
+[0m[1mgoogle_container_cluster.primary: Still creating... [5m50s elapsed][0m[0m
+[0m[1mgoogle_container_cluster.primary: Still creating... [6m0s elapsed][0m[0m
+[0m[1mgoogle_container_cluster.primary: Creation complete after 6m10s [id=projects/gke-1-432911/locations/us-central1/clusters/my-gke-cluster][0m
+[0m[1m[32m
+Apply complete! Resources: 3 added, 0 changed, 0 destroyed.
+[0m[0m[1m[32m
+Outputs:
+
+[0mcluster_ca_certificate = "LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSUVMRENDQXBTZ0F3SUJBZ0lRUGduOGZJVDNEdGNwT0d1bXdETUdrekFOQmdrcWhraUc5dzBCQVFzRkFEQXYKTVMwd0t3WURWUVFERXlSak1qRTROVGt3T1MwNFl6QmxMVFF3WlRJdE9UZzJPUzB4TlRsa05XUTROemhtWldJdwpJQmNOTWpRd09ESTRNVE0xTnpBeldoZ1BNakExTkRBNE1qRXhORFUzTUROYU1DOHhMVEFyQmdOVkJBTVRKR015Ck1UZzFPVEE1TFRoak1HVXROREJsTWkwNU9EWTVMVEUxT1dRMVpEZzNPR1psWWpDQ0FhSXdEUVlKS29aSWh2Y04KQVFFQkJRQURnZ0dQQURDQ0FZb0NnZ0dCQU1IQitKZjk4TlVxUjU2SXVyL29Gd3Z1VW9LZzUzT1JFbFliNHRERwpNWjlSQ05oZGJDRG5wZFlLaTY2WXlTbjBFYUdPNEx4RFhRNFBzdkpOSjE4aUd3MU9HNHBhTTc0cGt1ak5JcVVCCnU0K0k0aWVrQS8yZC9obDA4TTU4aW16dUFKUXRMc2N1aldMUXNxMEcrWFRSSUtUZnVjeHNkeW1EM0VscEhYVHQKYmxGVzBBdnhSWFVha2ozM1JKSk9LVk5iSGhXRVRSSGZadjNLWkl4SGZxS05adjBiaG5MTmFEdlVUNktsWFA4bQpOVWhFS2EzUVIyVEt5OHE4akw2UlpURHZKcytQUXNESmVpM2treC95OHArTVYySXlRN3VIalV1NUlmTkgwcFhnCmp4KzFvQUJFSEQ4a05QQWY0dnM4anNXa1RJQm1xaG1ZdnFkUU5WRVQveUQwclptSENEcHhHMndjMVBzVkJBeG0KV09GR09mdFYyV1FoOUNBZlA1d0dsTndvbVdXUjBpVVpxdVJLZkRSa1lTTWUxYStrQ2dpaTV5YlR6ZXNBclZQLwpobTZGSXcxUWFxcm9IYWlORGplMlUrK0JNbWlRVWFaTllIbGNRSElQa3lsWjV4QjN0ZXdtalZmRU0xcExFV0pMCjJrY3FFcE9YVU9CZDY5SVBJOTM4RzB1Yll3SURBUUFCbzBJd1FEQU9CZ05WSFE4QkFmOEVCQU1DQWdRd0R3WUQKVlIwVEFRSC9CQVV3QXdFQi96QWRCZ05WSFE0RUZnUVVKcTJHdXN5alpUaU5KbURYYTF4QlF0T29idEV3RFFZSgpLb1pJaHZjTkFRRUxCUUFEZ2dHQkFDS3pFamZzNWFYMVhrUjU2ZlErWjh4UFNwUWU2WGhaWTZtNFpuNzE2cmdLCkdwbFVqL1BRb3Fhd0ZCRCtpbjVMbEVSb0ZMQTdQaDBuOWh3MG5TeGp2VWMrR0V1OWFlUHZoWFg3Z2lmVnZzdGcKYURPbjRNREtYZ0U3elNPek80WEkrVnFYVTFjaDhIVnhJcENvQ3pBN1RveU1oWVZESmxScWFoNHRNYlROQTlMYwoybGZTYVJvNWREUUhLdlczREorNUk1TERqZ2R4NWRXMHJpMjB4R2xDWldlaDlJbmNFZ3dXSi9GV3pNTEpPREJnCjJhMGduNVNwNHpIdnVhTGtQbkgvdk56dDRVZkh6c1c4dU
