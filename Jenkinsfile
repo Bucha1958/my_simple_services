@@ -70,6 +70,14 @@ pipeline {
             }
         }
 
+        stage('Build JAR') {
+            steps {
+                script {
+                        sh 'mvn clean package'
+                }
+            }
+        }
+
         stage('Build and Push MyFirstDemoWithSpring Docker Image') {
             steps {
                 script {

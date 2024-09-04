@@ -8,8 +8,8 @@ node_modules/
 .env
 
 # Ignore build directories
-# dist/
-# build/
+dist/
+build/
 
 # Ignore package-lock.json (optional, if you want to avoid tracking it)
 package-lock.json
