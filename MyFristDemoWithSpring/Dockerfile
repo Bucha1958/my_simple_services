@@ -5,7 +5,7 @@ FROM openjdk:17-jdk-alpine
 WORKDIR /app
 
 # Copy the JAR file into the container
-COPY target/MyFristDemoWithSpring-0.0.1-SNAPSHOT.jar /app/app.jar
+COPY MyFristDemoWithSpring/target/MyFristDemoWithSpring-0.0.1-SNAPSHOT.jar /app/app.jar
 
 # Expose the port that the application runs on
 EXPOSE 8080
