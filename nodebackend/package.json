@@ -1,0 +1,16 @@
+{
+  "name": "my-express-backend",
+  "version": "1.0.0",
+  "description": "A simple Express.js backend with CORS and security enhancements.",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "author": "Your Name",
+  "license": "MIT",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.18.2",
+    "helmet": "^6.0.1"
+  }
+}
