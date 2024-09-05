@@ -73,7 +73,9 @@ pipeline {
         stage('Build JAR') {
             steps {
                 script {
-                        sh 'mvn clean package'
+                        dir('MyFristDemoWithSpring/MyFristDemoWithSpring') {
+                            sh 'mvn clean package'
+                        }
                 }
             }
         }
