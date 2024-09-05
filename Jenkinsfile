@@ -86,6 +86,9 @@ pipeline {
                     withCredentials([usernamePassword(credentialsId: 'dockerhub-credentials', passwordVariable: 'DOCKERHUB_PASSWORD', usernameVariable: 'DOCKERHUB_USERNAME')]) {
                         dir('MyFristDemoWithSpring') {
                             echo "Building backend Docker image..."
+                            // Ensure the target folder is present
+                            sh 'ls -al MyFristDemoWithSpring/target/'
+                            
                             sh 'docker build -t bucha1958/my_java_app:latest .'
                             
                             echo "Logging in to DockerHub..."
