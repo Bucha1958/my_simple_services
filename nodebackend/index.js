@@ -17,6 +17,8 @@ app.get('/api', (req, res) => {
 // Health check endpoint for Kubernetes or monitoring
 app.get('/healthz', (req, res) => {
   res.status(200).json({ status: 'ok' });
+
+  
 });
 
 const PORT = process.env.PORT || 5000;

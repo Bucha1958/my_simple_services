@@ -30,4 +30,4 @@ Thumbs.db
 .terraform/
 
 # Ignore sensitive JSON credentials
-*.json
+
