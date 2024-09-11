@@ -40,45 +40,45 @@ spec:
 
 ---
 # Backend Deployment
-apiVersion: apps/v1
-kind: Deployment
-metadata:
-  name: backend-deployment
-spec:
-  replicas: 2
-  selector:
-    matchLabels:
-      app: backend
-  template:
-    metadata:
-      labels:
-        app: backend
-    spec:
-      containers:
-        - name: backend-container
-          image: bucha1958/backend-service:latest
-          ports:
-            - containerPort: 5000
-          env:
-            - name: PORT
-              value: "5000"
-            - name: FRONTEND_SERVICE_ADDR
-              value: "frontend-service:80"
+# apiVersion: apps/v1
+# kind: Deployment
+# metadata:
+#   name: backend-deployment
+# spec:
+#   replicas: 2
+#   selector:
+#     matchLabels:
+#       app: backend
+#   template:
+#     metadata:
+#       labels:
+#         app: backend
+#     spec:
+#       containers:
+#         - name: backend-container
+#           image: bucha1958/backend-service:latest
+#           ports:
+#             - containerPort: 5000
+#           env:
+#             - name: PORT
+#               value: "5000"
+#             - name: FRONTEND_SERVICE_ADDR
+#               value: "frontend-service:80"
 
----
-# Backend Service
-apiVersion: v1
-kind: Service
-metadata:
-  name: backend-service
-spec:
-  selector:
-    app: backend
-  ports:
-    - protocol: TCP
-      port: 5000
-      targetPort: 5000
-  type: ClusterIP
+# ---
+# # Backend Service
+# apiVersion: v1
+# kind: Service
+# metadata:
+#   name: backend-service
+# spec:
+#   selector:
+#     app: backend
+#   ports:
+#     - protocol: TCP
+#       port: 5000
+#       targetPort: 5000
+#   type: ClusterIP
 ---
 # Java Backend Deployment
 apiVersion: apps/v1
