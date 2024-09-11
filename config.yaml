@@ -22,7 +22,7 @@ spec:
             - name: PORT
               value: "80"
             - name: JAVA-BACKEND-ADDR
-              value: "java-backend-service:8080"
+              value: "http://34.173.11.192:8080/api/message"
 ---
 # Frontend Service
 apiVersion: v1
