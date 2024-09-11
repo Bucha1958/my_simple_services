@@ -21,8 +21,8 @@ spec:
           env:
             - name: PORT
               value: "80"
-            - name: BACKEND_SERVICE_ADDR
-              value: "backend-service:5000"
+            - name: JAVA-BACKEND-ADDR
+              value: "java-backend-service:8080"
 ---
 # Frontend Service
 apiVersion: v1
@@ -104,7 +104,7 @@ spec:
             - name: PORT
               value: "8080"
             - name: JAVA_BACKEND_ADDR
-              value: "java-backend-service:8080"
+              value: "frontend-service:80"
 
 ---
 # Java Backend Service

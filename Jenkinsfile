@@ -162,7 +162,7 @@ pipeline {
                     echo "Deploying to GKE..."
                     sh '''
                         kubectl apply -f config.yaml -n microservices
-                        kubectl apply -f custome_nginx/nginxConfig.yaml -n microservices
+                        
                     '''
                 }
             }
