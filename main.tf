@@ -1,14 +1,7 @@
 provider "google" {
-  credentials = file("gke-1-432911-a6ca7309eef8.json")
-  project     = "gke-1-432911"
+  credentials = file("mike-428601-7c6aed3dc442.json")
+  project     = "mike-428601"
   region      = "us-central1"
-}
-
-terraform {
-  backend "gcs" {
-    bucket = "demo-bucket-1958"
-    prefix = "terraform/demo-project-1/state"
-  }
 }
 
 resource "google_compute_network" "vpc_network" {
@@ -45,6 +38,8 @@ resource "google_container_cluster" "primary" {
   deletion_protection = false
   
   node_config {
+    disk_size_gb = 50
+    service_account = "okoriemmadu@mike-428601.iam.gserviceaccount.com"
     machine_type = "e2-medium"
     oauth_scopes = [
       "https://www.googleapis.com/auth/cloud-platform",
