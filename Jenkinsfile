@@ -5,7 +5,7 @@ pipeline {
         GIT_URL = 'https://github.com/Bucha1958/my_simple_services.git'
         BACKEND_DIR = 'nodebackend'
         FRONTEND_DIR = 'frontend'
-        GIT_CREDENTIALS = 'github-credentials'
+        GIT_CREDENTIALS = 'my-github-credentials'
         DOCKERHUB_CREDENTIALS = 'dockerhub-credentials'
         VERSION_TAG = "${BUILD_NUMBER}-${GIT_COMMIT[0..6]}"
         KUBECONFIG_CREDENTIALS_ID = 'kubernetes-credentials'
