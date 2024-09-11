@@ -7,7 +7,7 @@ import org.springframework.http.ResponseEntity;
 
 @RestController
 public class HelloWorld {
-    @CrossOrigin(origins = "http://127.0.0.1:5500") // Allow requests from your frontend's origin
+    @CrossOrigin(origins = "http://34.46.81.41:80") // Allow requests from your frontend's origin
     @GetMapping("/api/message")
     public ResponseEntity<MessageResponse> hello() {
         // Create a response object with the message
