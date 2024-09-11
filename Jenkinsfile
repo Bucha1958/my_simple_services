@@ -27,17 +27,17 @@ pipeline {
             }
         }
 
-        stage('Install Backend Dependencies') {
-            steps {
-                dir("${BACKEND_DIR}") {
-                    script {
-                        echo 'Installing Backend Dependencies...'
-                        sh 'echo $PATH'
-                        sh 'npm install || (echo "npm install failed" && exit 1)'
-                    }
-                }
-            }
-        }
+        // stage('Install Backend Dependencies') {
+        //     steps {
+        //         dir("${BACKEND_DIR}") {
+        //             script {
+        //                 echo 'Installing Backend Dependencies...'
+        //                 sh 'echo $PATH'
+        //                 sh 'npm install || (echo "npm install failed" && exit 1)'
+        //             }
+        //         }
+        //     }
+        // }
         
 
         stage('Deploy Frontend') {
@@ -50,25 +50,25 @@ pipeline {
             }
         }
 
-        stage('Build and Push nodeBackend Docker Image') {
-            steps {
-                script {
-                    withCredentials([usernamePassword(credentialsId: 'dockerhub-credentials', passwordVariable: 'DOCKERHUB_PASSWORD', usernameVariable: 'DOCKERHUB_USERNAME')]) {
-                        dir('nodebackend') {
-                            echo "Building backend Docker image..."
-                            sh 'docker build -t bucha1958/nodebackend-service:${VERSION_TAG} .'
+        // stage('Build and Push nodeBackend Docker Image') {
+        //     steps {
+        //         script {
+        //             withCredentials([usernamePassword(credentialsId: 'dockerhub-credentials', passwordVariable: 'DOCKERHUB_PASSWORD', usernameVariable: 'DOCKERHUB_USERNAME')]) {
+        //                 dir('nodebackend') {
+        //                     echo "Building backend Docker image..."
+        //                     sh 'docker build -t bucha1958/nodebackend-service:${VERSION_TAG} .'
                             
-                            echo "Logging in to DockerHub..."
-                            sh 'echo $DOCKERHUB_PASSWORD | docker login -u $DOCKERHUB_USERNAME --password-stdin'
+        //                     echo "Logging in to DockerHub..."
+        //                     sh 'echo $DOCKERHUB_PASSWORD | docker login -u $DOCKERHUB_USERNAME --password-stdin'
                             
-                            echo "Pushing backend Docker image..."
-                            sh "docker tag bucha1958/nodebackend-service:${VERSION_TAG} bucha1958/nodebackend-service:latest"
-                            sh "docker push bucha1958/nodebackend-service:latest"
-                        }
-                    }
-                }
-            }
-        }
+        //                     echo "Pushing backend Docker image..."
+        //                     sh "docker tag bucha1958/nodebackend-service:${VERSION_TAG} bucha1958/nodebackend-service:latest"
+        //                     sh "docker push bucha1958/nodebackend-service:latest"
+        //                 }
+        //             }
+        //         }
+        //     }
+        // }
 
         stage('Build JAR') {
             steps {
