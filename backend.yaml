@@ -1,0 +1,40 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: java-backend-deployment
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: java-backend
+  template:
+    metadata:
+      labels:
+        app: java-backend
+    spec:
+      containers:
+        - name: java-backend-container
+          image: bucha1958/my_java_app:latest
+          ports:
+            - containerPort: 8080
+          env:
+            - name: PORT
+              value: "8081"
+            - name: FRONTEND_SERVICE_ADDR
+              value: "frontend-service:80"
+
+---
+# Java Backend Service
+apiVersion: v1
+kind: Service
+metadata:
+  name: java-backend-service
+spec:
+  selector:
+    app: java-backend
+  ports:
+    - protocol: TCP
+      port: 8080
+      targetPort: 8080
+  type: LoadBalancer
+

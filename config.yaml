@@ -20,9 +20,9 @@ spec:
             - containerPort: 80
           env:
             - name: PORT
-              value: "80"
+              value: "81"
             - name: JAVA-BACKEND-ADDR
-              value: "http://34.173.11.192:8080/api/message"
+              value: "http://java-backend-service:8080/api/message"
 ---
 # Frontend Service
 apiVersion: v1
@@ -102,8 +102,8 @@ spec:
             - containerPort: 8080
           env:
             - name: PORT
-              value: "8080"
-            - name: JAVA_BACKEND_ADDR
+              value: "8081"
+            - name: FRONTEND_SERVICE_ADDR
               value: "frontend-service:80"
 
 ---

@@ -147,21 +147,21 @@ pipeline {
             steps {
                 script {
                     echo "Checking if namespace 'microservices' exists..."
-                    def nsExists = sh(script: "kubectl get ns microservices --ignore-not-found", returnStatus: true) == 0
+                    // def nsExists = sh(script: "kubectl get ns microservices --ignore-not-found", returnStatus: true) == 0
                     
-                    if (!nsExists) {
-                        echo "Namespace 'microservices' does not exist. Creating it..."
-                        sh 'kubectl create namespace microservices'
-                        // Add a brief delay to ensure the namespace is fully registered
-                        sleep 5
-                        sh 'kubectl get ns microservices'
-                    } else {
-                        echo "Namespace 'microservices' already exists."
-                    }
+                    // if (!nsExists) {
+                    //     echo "Namespace 'microservices' does not exist. Creating it..."
+                    //     sh 'kubectl create namespace microservices'
+                    //     // Add a brief delay to ensure the namespace is fully registered
+                    //     sleep 5
+                    //     sh 'kubectl get ns microservices'
+                    // } else {
+                    //     echo "Namespace 'microservices' already exists."
+                    // }
 
                     echo "Deploying to GKE..."
                     sh '''
-                        kubectl apply -f config.yaml -n microservices
+                        kubectl apply -f config.yaml
                         
                     '''
                 }
